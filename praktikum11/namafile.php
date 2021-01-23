@@ -77,12 +77,14 @@
             $tk = $_POST['tk'];
             $hasil = $indo+$math+$inggris+$tk;
 
+            if($name != null && $indo != null && $math != null){
             echo "Nama : $name  <br />"; 
             echo "Nilai Bahasa Indonesia : $indo <br />"; 
             echo "Nilai Matematika :  $math <br />"; 
             echo "Nilai Bahasa Inggris : $inggris <br />"; 
             echo "Nilai Teknik Keahlian : $tk <br />"; 
             echo "Nilai Keseluruhan : $hasil <br />"; 
+            }
             ?>    
         </p>
         </div>
