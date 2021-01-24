@@ -26,7 +26,23 @@
         </div>
         <div class="row" style="width:40%; padding-bottom: 10px;">
             <div class="col" style="width : 100%;">
-                Nilai UTS
+                Jurusan
+            </div>
+            <div class="col" style="width : 100%;">
+                <input name="jurusan" type="text" placeholder="jurusan">
+            </div>  
+        </div>
+        <div class="row" style="width:40%; padding-bottom: 10px;">
+            <div class="col" style="width : 100%;">
+                NIM
+            </div>
+            <div class="col" style="width : 100%;">
+                <input name="nim" type="text" placeholder="NIM">
+            </div>  
+        </div>
+        <div class="row" style="width:40%; padding-bottom: 10px;">
+            <div class="col" style="width : 100%;">
+                Nilai Harian
             </div>
             <div class="col" style="width : 100%;">
                 <input name="indo" type="number" placeholder="">
@@ -34,7 +50,7 @@
         </div>
         <div class="row" style="width:40%; padding-bottom: 10px;">
             <div class="col" style="width : 100%;">
-                Nilai PAS
+                Nilai Tugas
             </div>
             <div class="col" style="width : 100%;">
                 <input name="math" type="number" placeholder="">
@@ -42,7 +58,7 @@
         </div>
         <div class="row" style="width:40%; padding-bottom: 10px;">
             <div class="col" style="width : 100%;">
-                Nilai US
+                Nilai UTs
             </div>
             <div class="col" style="width : 100%;">
                 <input name="inggris" type="number" placeholder="">
@@ -50,7 +66,7 @@
         </div>
         <div class="row" style="width:40%; padding-bottom: 10px;">
             <div class="col" style="width : 100%;">
-                Nilai UN
+                Nilai UAS
             </div>
             <div class="col" style="width : 100%;">
                 <input name="tk" type="number" placeholder="">
@@ -71,35 +87,25 @@
         <p id="hasil">
         <?php 
             $name = $_POST['nama'];
+            $nim = $_POST['nim'];
+            $jurusan = $_POST['jurusan'];
             $indo = $_POST['indo'];
             $math = $_POST['math'];
             $inggris = $_POST['inggris'];
             $tk = $_POST['tk'];
-            $hasil = $indo+$math+$inggris+$tk/4;
+            $count_1 = $indo*20/100;
+            $count_2 = $math*10/100;
+            $coutn_3 = $inggris*30/100;
+            $count_4 = $tk*40/100;
+            $count_all = $count_1+$count_2+$coutn_3+$count_4;
 
-            if($name != null && $indo != null && $math != null){
-            echo "Nama : $name  <br />"; 
-            echo "Nilai Bahasa Indonesia : $indo <br />"; 
-            echo "Nilai Matematika :  $math <br />"; 
-            echo "Nilai Bahasa Inggris : $inggris <br />"; 
-            echo "Nilai Teknik Keahlian : $tk <br />"; 
-                if($hasil >= 50 && $hasil <= 59){
-                    echo "<p style='color:orange;'>Nilai Keseluruhan $hasil<p>";
-                    echo "<p style='color:orange;'>D<p>";
-                }else if($hasil >= 60 && $hasil <= 69){
-                    echo "<p style='color:yellow;'>Nilai Keseluruhan $hasil<p>";
-                    echo "<p style='color:yellow;'>C<p>";
-                }else if($hasil >= 70 && $hasil <= 79){
-                    echo "<p style='color:biru;'>Nilai Keseluruhan $hasil<p>";
-                    echo "<p style='color:biru;'>B<p>";
-                }else if($hasil >= 80 && $hasil <= 100){
-                    echo "<p style='color:hijau;'>Nilai Keseluruhan $hasil<p>";
-                    echo "<p style='color:hijau;'>A<p>";
-                }else {
-                    echo "<p style='color:red;'>Nilai Keseluruhan $hasil<p>";
-                    echo "<p style='color:red;'>E<p>";
-                }
+            if($indo != null && $math != null && $inggris != null && $tk != null){
+                echo "Nama      : $name <br />";
+                echo "NIM       : $nim <br /> ";
+                echo "Jurusan   : $jurusan <br /> ";
+                echo "NIlai Akhir : $count_all (harian : $count_1, tugas : $count_2, uts : $coutn_3, uas : $count_4)";
             }
+            
             ?>    
         </p>
         </div>
